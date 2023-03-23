@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/TexttOperator/static/css/main.d146b2ff.css",
+    "main.js": "/TexttOperator/static/js/main.28fcfd6d.js",
+    "static/js/787.b0aeaa11.chunk.js": "/TexttOperator/static/js/787.b0aeaa11.chunk.js",
+    "static/media/logo.svg": "/TexttOperator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/TexttOperator/index.html",
+    "main.d146b2ff.css.map": "/TexttOperator/static/css/main.d146b2ff.css.map",
+    "main.28fcfd6d.js.map": "/TexttOperator/static/js/main.28fcfd6d.js.map",
+    "787.b0aeaa11.chunk.js.map": "/TexttOperator/static/js/787.b0aeaa11.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d146b2ff.css",
+    "static/js/main.28fcfd6d.js"
+  ]
+}
