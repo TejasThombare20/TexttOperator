@@ -73,19 +73,23 @@ export default function TextForm(props) {
                     <textarea className="form-control" placeholder="enter a text..." id="floatingTextarea" onChange={hadlechange} value={text} 
                     style={{backgroundColor:props.mode==="light"?"white":"black",color:props.mode==="light"?"black":"white"}}   rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1 " onClick={handleUpClick}> UpperCase</button>
-                <button className="btn btn-primary mx-1" onClick={handleLoClick}> LowerCase</button>
-                <button className="btn btn-primary mx-1" onClick={cleartextfunc}> clear Text</button>
-                <button className="btn btn-primary mx-1" onClick={copytextfunc}> copy text</button>
-                <button className="btn btn-primary mx-1" onClick={clearExtraSpacefunc}> clear Extra space</button>
+                <button disabled ={text.length===0} className="btn btn-primary mx-1 my-2 " onClick={handleUpClick}> UpperCase</button>
+                <button disabled ={text.length===0} className="btn btn-primary mx-1 " onClick={handleLoClick}> LowerCase</button>
+                <button disabled ={text.length===0} className="btn btn-primary mx-1 my-2" onClick={cleartextfunc}> clear Text</button>
+                <button disabled ={text.length===0} className="btn btn-primary mx-1 my-2" onClick={copytextfunc}> copy text</button>
+                <button disabled ={text.length===0} className="btn btn-primary mx-1 my-2" onClick={clearExtraSpacefunc}> clear Extra space</button>
 
             </div>
             <div style={{color:props.mode==="light"?"black":"white"}}>
                 <h2>Summary : </h2> 
                 <h6>total character : {text.length}</h6>
-                <h6>total words : {text.split(" ").length}</h6>
+                <h6>total words : {text.split(/\s+/ ).filter((element)=>{return element.length !== 0}).length}</h6>
+                {/* <h6>total words : { text.trim().split(/\s+/).length}</h6> */}
+                
+                <h6> minutes read : {0.008 *text.split(" ").filter((element)=>{return element.length !== 0}).length}</h6>
+
                 <h2>Preview</h2>
-                <p>{text.length>0?text:"Enter the text in text box to preview here"}</p>
+                <p>{text.length>0?text:"nothing to preview"}</p>
 
             </div>
 

@@ -10,13 +10,13 @@ import Alert from './component/Alert'
 import React, { useState } from 'react'
 
 
- import {
-   BrowserRouter as Router,
-   Switch,
-   Route,
-   Routes,
-   Link
- } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
 
 
 function App() {
@@ -34,7 +34,17 @@ function App() {
       setAlert(null)
     }, 3000);
   }
-  const clickfunc = () => {
+  const removeClass =()=>
+  {
+    document.body.classList.remove("bg-primary")
+    document.body.classList.remove("bg-info")
+    document.body.classList.remove("bg-warning")
+    document.body.classList.remove("bg-danger")
+    document.body.classList.remove("bg-success")
+  }
+  const clickfunc = (cls) => {
+    removeClass();
+    document.body.classList.add("bg-"+cls)
     if (mode === "light") {
       setMode("dark")
       document.body.style.backgroundColor = "black"
@@ -57,28 +67,27 @@ function App() {
   }
   return (
     <>
-      {/* <Navbar/> */}
-      <Alert alert={alert} />
-      <Router>
-      <Navbar title="Navbar " Home=" Home " mode={mode} clickfunc={clickfunc} />
-       <Routes>
-        {/* /user --> compoent 
+           {/* <Navbar/> */}
+
+          {/* /user --> compoent 
         /user/hme --> component2 */}
-        <Route exact path="/about" element={ <Card />}/>
-          
-        <Route path="/" element={<TextForm  feedback="we never share your email-id" showAlert={showAlert} mode={mode} />} >
-        
-        </Route>
-        </Routes>
-      </Router>
+        <Router>
+          <Navbar title="Navbar " Home=" Home " mode={mode} clickfunc={clickfunc} /> 
+          <Alert alert={alert} />
+          <Routes>  
+            <Route exact path="/about" element={<Card mode={mode} />} />
+            <Route path="/" element={<TextForm feedback="we never share your email-id" showAlert={showAlert} mode={mode} />} />
+          </Routes>
+        </Router>
 
-      
-      {/* <Accordion/> */}
-     
 
-    </>
+          {/* <Accordion/> */}
 
-  );
+         
+        </>
+
+        );
 }
 
-export default App;
+        export default App;
+        
